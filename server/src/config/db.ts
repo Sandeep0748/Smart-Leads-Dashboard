@@ -1,6 +1,10 @@
 import mongoose from 'mongoose';
 
-const mongoUri = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/smart-leads';
+const mongoUri = process.env.MONGO_URI;
+
+if (!mongoUri) {
+  throw new Error('Missing required environment variable: MONGO_URI');
+}
 
 export async function connectDatabase(): Promise<void> {
   await mongoose.connect(mongoUri);
