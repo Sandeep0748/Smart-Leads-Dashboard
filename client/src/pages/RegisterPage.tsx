@@ -19,7 +19,7 @@ function RegisterPage() {
     setError('');
 
     try {
-      const response = await api.post('/auth/register', { name, email, password, role });
+      const response = await api.post('auth/register', { name, email, password, role });
       login(response.data.token, response.data.user);
       navigate('/', { replace: true });
     } catch (err) {

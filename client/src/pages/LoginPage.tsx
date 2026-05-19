@@ -20,7 +20,7 @@ function LoginPage() {
     setError('');
 
     try {
-      const response = await api.post('/auth/login', { email, password });
+      const response = await api.post('auth/login', { email, password });
       login(response.data.token, response.data.user);
       navigate(from, { replace: true });
     } catch (err) {
