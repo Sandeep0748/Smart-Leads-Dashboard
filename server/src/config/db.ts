@@ -7,6 +7,6 @@ if (!mongoUri) {
 }
 
 export async function connectDatabase(): Promise<void> {
-  await mongoose.connect(mongoUri);
+  await mongoose.connect(mongoUri as string);
   console.log('Connected to MongoDB');
 }
